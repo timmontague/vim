@@ -13,7 +13,12 @@ then
 fi
 
 echo "copying vimrc"
-cp vimrc ../.vimrc
+if [ -f /etc/vim/vimrc.local ]
+then
+	sudo cp vimrc /etc/vim/vimrc.local
+else
+	cp vimrc ~/.vimrc
+fi
 
 cd bundle
 for r in $REPOS
