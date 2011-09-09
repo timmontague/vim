@@ -1,9 +1,10 @@
 #!/bin/sh
 
-REPOS="https://github.com/csexton/jekyll.vim.git
+REPOS="https://github.com/timmontague/jekyll.vim.git
 https://github.com/plasticboy/vim-markdown.git
 https://github.com/vim-scripts/closetag.vim.git
-https://github.com/majutsushi/tagbar.git"
+https://github.com/majutsushi/tagbar.git
+https://github.com/vim-scripts/undofile.vim.git"
 
 if [ ! -d bundle ]
 then
