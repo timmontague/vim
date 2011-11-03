@@ -39,6 +39,9 @@ set background=dark
 set t_Co=256
 colorscheme torte
 
+" Use system clipboard when doing yanks and puts
+set clipboard=unnamed
+
 " Use pathogen to autoload plugins from ~/.vim/bundle/
 call pathogen#infect()
 
