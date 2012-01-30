@@ -10,6 +10,10 @@ https://github.com/tomtom/tlib_vim.git"
 
 # vim-addon-mw-utils and tlib_vim are requirements of vim-snipmate
 
+# make tmp dirs
+mkdir -p ~/.vim/tmp/backup
+mkdir -p ~/.vim/tmp/undo
+
 if [ ! -d bundle ]
 then
 	echo "Make sure the bundle directory exists"

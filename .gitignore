@@ -1,4 +1,4 @@
-/backup/*
+/tmp/*
 /bundle/*
 
 *~
@@ -6,6 +6,5 @@
 *.DS_Store
 *.swp
 *.out
-.svn/
 
 !.gitignore

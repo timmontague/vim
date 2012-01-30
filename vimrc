@@ -1,24 +1,21 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Tim Montague's vimrc
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" Use pathogen to autoload plugins from ~/.vim/bundle/
+call pathogen#infect()
 
 " typing Ctrl-Space in edit mode autocompletes
 :imap <C-Space> <C-X><C-O>
 
-set backupdir=~/.vim/backup//
-set dir=~/.vim/backup//
+set backupdir=~/.vim/tmp/backup//
+set dir=~/.vim/tmp//
+
+" set persistent backup
+set undodir=~/.vim/tmp/undo//
+set undofile
 
 set modeline
 set tabstop=4
@@ -32,8 +29,9 @@ noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
 
-set formatoptions+=l
-set lbr
+set formatoptions+=c	" auto wrap comments
+set formatoptions+=n	" autoformat numbered lists
+set lbr					" wrap at word
 
 set background=dark
 set t_Co=256
@@ -41,9 +39,6 @@ colorscheme torte
 
 " Use system clipboard when doing yanks and puts
 set clipboard=unnamed
-
-" Use pathogen to autoload plugins from ~/.vim/bundle/
-call pathogen#infect()
 
 " Jekyll.vim options
 let g:jekyll_path = "/Users/tim/Documents/website/blog"
@@ -54,22 +49,14 @@ let g:jekyll_prompt_categories = "true"
 let g:tagbar_autofocus=1
 map <Leader>t :TagbarToggle
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
+set backup		" keep a backup file
+set history=50	" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set incsearch	" do incremental searching
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
