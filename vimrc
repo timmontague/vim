@@ -100,8 +100,8 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-" toggle hex mode by ctrl-h
-nnoremap <C-H> :Hexmode<CR>
+" toggle hex mode by ctrl-x
+nnoremap <C-X> :Hexmode<CR>
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
 
