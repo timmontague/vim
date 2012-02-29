@@ -6,7 +6,8 @@ https://github.com/vim-scripts/closetag.vim.git
 https://github.com/majutsushi/tagbar.git
 https://github.com/garbas/vim-snipmate.git
 https://github.com/MarcWeber/vim-addon-mw-utils.git
-https://github.com/tomtom/tlib_vim.git"
+https://github.com/tomtom/tlib_vim.git
+https://github.com/scrooloose/nerdtree.git"
 
 # vim-addon-mw-utils and tlib_vim are requirements of vim-snipmate
 
@@ -20,8 +21,11 @@ then
 	exit
 fi
 
-echo "copying vimrc"
-cp vimrc ~/.vimrc
+if [[ ! -L ~/.vimrc ]]; then
+	echo "symlinking vimrc"
+	rm ~/.vimrc
+	ln -s ~/.vim/vimrc ~/.vimrc
+fi
 
 cd bundle
 for r in $REPOS

@@ -40,6 +40,9 @@ colorscheme torte
 " Use system clipboard when doing yanks and puts
 set clipboard=unnamed
 
+" w!! to write a file as sudo
+cmap w!! w !sudo tee % >/dev/null
+
 " Jekyll.vim options
 let g:jekyll_path = "/Users/tim/Documents/website/blog"
 let g:jekyll_post_created = "%Y-%m-%d %T %z"
@@ -47,7 +50,16 @@ let g:jekyll_prompt_categories = "true"
 
 " TagBar options
 let g:tagbar_autofocus=1
-map <Leader>t :TagbarToggle
+map <C-T> :TagbarToggle<CR>
+
+" NERDTree options
+" open if vim is started with no files
+autocmd vimenter * if !argc() | NERDTree | endif
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 30
+nmap <C-N> :NERDTreeToggle<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -58,11 +70,8 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch	" do incremental searching
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
+"Clear current search highlight by double tapping //
+nmap <silent> // :nohlsearch<CR>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -75,14 +84,8 @@ syntax on
 set hlsearch
 
 " Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
-
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-au!
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
@@ -97,12 +100,26 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-augroup END
-
 " toggle hex mode by ctrl-h
 nnoremap <C-H> :Hexmode<CR>
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
+
+" Move between split windows by using the four directions H, L, I, N
+" (note that I use I and N instead of J and K because J already does
+" line joins and K is mapped to GitGrep the current word
+nnoremap <silent> H <C-w>h
+nnoremap <silent> L <C-w>l
+nnoremap <silent> I <C-w>k
+nnoremap <silent> M <C-w>j
+" Move between tabs with Ctrl-Shift-H and Ctrl-Shift-L
+map <silent> <C-H> :tabprevious<cr>
+map <silent> <C-L> :tabnext<cr>
+
+" Move back and forth through previous and next buffers
+" with ,z and ,x
+nnoremap <silent> ,z :bp<CR>
+nnoremap <silent> ,x :bn<CR>
 
 " helper function to toggle hex mode
 function ToggleHex()
