@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 REPOS="https://github.com/csexton/jekyll.vim.git
 https://github.com/plasticboy/vim-markdown.git
