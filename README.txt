@@ -1,3 +1,8 @@
+These are Tim's vim-related files
+Run update.sh to automatically download and install plugins
+
+Some reminders for me:
+
 Auto-complete html/xml tags in insert mode:
 Ctrl-_
 
