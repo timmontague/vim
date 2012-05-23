@@ -1,3 +1,12 @@
+" Adds indented text blocks as a text object
+" ii selects current indented text block
+" ai selects all indented text blocks, even if seperated by blank lines
+" Press: vai, vii to select indented blocks
+" Press: vii, yii, dii, cii to select/yank/delete/change an indented block.
+onoremap <silent>ai :<C-u>call IndTxtObj(0)<CR>
+onoremap <silent>ii :<C-u>call IndTxtObj(1)<CR>
+vnoremap <silent>ai <Esc>:call IndTxtObj(0)<CR><Esc>gv
+vnoremap <silent>ii <Esc>:call IndTxtObj(1)<CR><Esc>gv
 
 " typing Ctrl-Space in edit mode autocompletes
 :imap <C-Space> <C-X><C-O>

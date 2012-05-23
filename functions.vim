@@ -1,3 +1,38 @@
+" helper function to allow indented text blocks to be used as text objects
+function! IndTxtObj(inner)
+  let curcol = col(".")
+  let curline = line(".")
+  let lastline = line("$")
+  let i = indent(line("."))
+  if getline(".") !~ "^\\s*$"
+    let p = line(".") - 1
+    let pp = line(".") - 2
+    let nextblank = getline(p) =~ "^\\s*$"
+    let nextnextblank = getline(pp) =~ "^\\s*$"
+    while p > 0 && ((i == 0 && (!nextblank || (pp > 0 && !nextnextblank))) || (i > 0 && ((indent(p) >= i && !(nextblank && a:inner)) || (nextblank && !a:inner))))
+      -
+      let p = line(".") - 1
+      let pp = line(".") - 2
+      let nextblank = getline(p) =~ "^\\s*$"
+      let nextnextblank = getline(pp) =~ "^\\s*$"
+    endwhile
+    normal! 0V
+    call cursor(curline, curcol)
+    let p = line(".") + 1
+    let pp = line(".") + 2
+    let nextblank = getline(p) =~ "^\\s*$"
+    let nextnextblank = getline(pp) =~ "^\\s*$"
+    while p <= lastline && ((i == 0 && (!nextblank || pp < lastline && !nextnextblank)) || (i > 0 && ((indent(p) >= i && !(nextblank && a:inner)) || (nextblank && !a:inner))))
+      +
+      let p = line(".") + 1
+      let pp = line(".") + 2
+      let nextblank = getline(p) =~ "^\\s*$"
+      let nextnextblank = getline(pp) =~ "^\\s*$"
+    endwhile
+    normal! $
+  endif
+endfunction
+
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
 
