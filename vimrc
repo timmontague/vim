@@ -10,6 +10,9 @@ call pathogen#infect()
 source ~/.vim/functions.vim
 source ~/.vim/mappings.vim
 
+" Switch syntax highlighting on
+syntax on
+
 " move temporary files to seperate directory
 set backupdir=~/.vim/tmp/backup//
 set dir=~/.vim/tmp//
@@ -18,27 +21,26 @@ set dir=~/.vim/tmp//
 set undodir=~/.vim/tmp/undo//
 set undofile
 
-set modeline
+" set tab size to 4
 set tabstop=4
 set shiftwidth=4
 set smartindent
 
-set smartcase
+" search settings
+set hlsearch			" highlight search words
+set incsearch			" do incremental searching
+set ignorecase			" ignore case when searching
+set smartcase			" except when search string contains an uppercase leter
 
-set tw=80				" wrap at 80 columns
-set formatoptions+=t	" auto wrap text
-set formatoptions+=c	" auto wrap comments
-set formatoptions+=n	" autoformat numbered lists
-set lbr					" wrap at word
+" line wrap settings
+set wrap				" auto wrap
+set linebreak			" wrap at word boundry
+set textwidth=80		" wrap at 80 columns
 
+" color scheme
 set background=dark
 set t_Co=256
 colorscheme torte
-
-" Switch syntax highlighting on
-" Also switch on highlighting the last used search pattern.
-syntax on
-set hlsearch
 
 " Use system clipboard when doing yanks and puts
 set clipboard=unnamed
@@ -67,11 +69,9 @@ nmap <C-N> :NERDTreeToggle<CR>
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set backup		" keep a backup file
 set history=50	" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch	" do incremental searching
+set ruler		" show the cursor position all the time
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -81,9 +81,6 @@ endif
 " Enable file type detection.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
-
-" For all text files set 'textwidth' to 80 characters.
-autocmd FileType text setlocal textwidth=80
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
