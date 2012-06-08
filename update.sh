@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPOS="https://github.com/csexton/jekyll.vim.git
-https://github.com/plasticboy/vim-markdown.git
+https://github.com/tpope/vim-markdown.git
 https://github.com/vim-scripts/closetag.vim.git
 https://github.com/majutsushi/tagbar.git
 https://github.com/garbas/vim-snipmate.git
