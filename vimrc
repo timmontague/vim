@@ -62,7 +62,6 @@ cmap w!! w !sudo tee % >/dev/null
 " Jekyll.vim options
 let g:jekyll_path = "/Users/tim/Documents/website/blog"
 let g:jekyll_post_created = "%Y-%m-%d %T %z"
-let g:jekyll_prompt_categories = "true"
 
 " TagBar options
 let g:tagbar_autofocus=1

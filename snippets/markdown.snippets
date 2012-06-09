@@ -28,3 +28,9 @@ snippet ---
 	`repeat('-', strlen(getline(line(".") - 1)))`
 	
 	${1}
+
+# jekyll specific snippets
+snippet highlight
+	{% highlight ${1:language} %}
+		${2}
+	{% endhighlight %}
