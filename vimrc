@@ -82,6 +82,7 @@ set backspace=indent,eol,start
 set history=50	" keep 50 lines of command line history
 set showcmd		" display incomplete commands
 set ruler		" show the cursor position all the time
+set scrolloff=3	" show 3 lines above/below cursor when scrolling
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
