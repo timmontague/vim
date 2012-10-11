@@ -8,7 +8,8 @@ https://github.com/garbas/vim-snipmate.git
 https://github.com/MarcWeber/vim-addon-mw-utils.git
 https://github.com/tomtom/tlib_vim.git
 https://github.com/scrooloose/nerdtree.git
-https://github.com/kien/ctrlp.vim.git"
+https://github.com/kien/ctrlp.vim.git
+https://github.com/scrooloose/syntastic.git"
 
 # vim-addon-mw-utils and tlib_vim are requirements of vim-snipmate
 

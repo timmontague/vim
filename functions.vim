@@ -1,3 +1,15 @@
+" function to switch between relative, absolute and no line numbering
+function! NumberToggle()
+	if (&relativenumber == 0 && &number ==0)
+		set relativenumber
+	elseif (&number == 0)
+		set number
+	else
+		set nonumber
+		set norelativenumber
+	endif
+endfunction
+
 " helper function to allow indented text blocks to be used as text objects
 function! IndTxtObj(inner)
   let curcol = col(".")

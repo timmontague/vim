@@ -42,6 +42,10 @@ set background=dark
 set t_Co=256
 colorscheme torte
 
+" always show status line
+set laststatus=2
+highlight StatusLine ctermbg=black ctermfg=darkgrey
+
 " spell check
 set spellfile=~/.vim/tmp/spellfile.add
 highlight clear SpellBad
@@ -65,7 +69,6 @@ let g:jekyll_post_created = "%Y-%m-%d %T %z"
 
 " TagBar options
 let g:tagbar_autofocus=1
-map <C-T> :TagbarToggle<CR>
 
 " NERDTree options
 " open if vim is started with no files
@@ -74,7 +77,9 @@ let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 30
-nmap <C-N> :NERDTreeToggle<CR>
+
+" Syntastic options
+let g:syntastic_auto_jump = 1
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
