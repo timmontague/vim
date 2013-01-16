@@ -90,6 +90,9 @@ set showcmd		" display incomplete commands
 set ruler		" show the cursor position all the time
 set scrolloff=3	" show 3 lines above/below cursor when scrolling
 
+" fix autocomplete behavior
+set completeopt=longest,menuone
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=n

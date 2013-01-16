@@ -13,8 +13,9 @@ onoremap <silent>ii :<C-u>call IndTxtObj(1)<CR>
 vnoremap <silent>ai <Esc>:call IndTxtObj(0)<CR><Esc>gv
 vnoremap <silent>ii <Esc>:call IndTxtObj(1)<CR><Esc>gv
 
-" typing Ctrl-Space in edit mode autocompletes
-:imap <C-Space> <C-X><C-O>
+" typing Ctrl-Space in insert mode autocompletes
+inoremap <expr> <C-space> pumvisible() ? "\<lt>c-n>" : "\<lt>c-n>\<lt>c-r>=pumvisible() ? \"\\<lt>down>\" : \"\"\<lt>cr>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "Clear current search highlight by double tapping //
 nmap <silent> // :nohlsearch<CR>
