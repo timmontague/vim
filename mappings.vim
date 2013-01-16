@@ -46,6 +46,12 @@ nnoremap <silent> <Leader>t :tabnew<cr>
 noremap <silent> <Left> :tabprevious<cr>
 noremap <silent> <Right> :tabnext<cr>
 
+" Scoll up and down with arrows
+nnoremap <silent> <Up> <C-y>
+nnoremap <silent> <Down> <C-e>
+nnoremap <silent> <S-Up> <C-u>
+nnoremap <silent> <S-Down> <C-d>
+
 " Move back and forth through previous and next buffers
 " with shift and arrows
 nnoremap <silent> <S-Left> :bp<CR>
