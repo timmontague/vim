@@ -63,3 +63,8 @@ noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
 
+" ,d writes date in normal mode
+nnoremap <silent> <Leader>d "=strftime("%Y-%m-%d %H:%M:%S %z")<CR>P
+
+" ,p toggles paste mode
+set pastetoggle=<Leader>p
