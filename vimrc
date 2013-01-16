@@ -80,6 +80,7 @@ let g:NERDTreeWinSize = 30
 
 " Syntastic options
 let g:syntastic_auto_jump = 1
+let g:syntastic_c_include_dirs = [ 'lib/inc', 'lib' ]
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
